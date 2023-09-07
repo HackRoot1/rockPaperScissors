@@ -5,71 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .game{
+        header{
+            background-color: #f0f0f0;
+            height: 50px;
             display: flex;
-            flex-direction: row;
             justify-content: center;
             align-items: center;
-            background-color: #f0f0f0;
+            font-size: 25px;
         }
 
-        .game div{
-            height: 200px;
-            width: 200px;
-            background-color: #bfbfbf;
+        main{
+            background-color: aliceblue;
+            font-size: 25px;
+        }
+
+        main div{
+            background-color: rgb(211, 211, 211);
+            width: 100%;
+            margin: 1px 0px;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
-            margin: 20px;
-            font-size: 30px;
+            align-items: center;
+        }
+
+        main div a{
+            text-decoration: none;
+            color: black;
         }
     </style>
 </head>
 <body>
+    <header>
+        Rock-Paper-Scissor
+    </header>
+
     <main>
-        <section class = "game">
-            <div id = "rock">rock</div>
-            <div id = "paper">paper</div>
-            <div id = "scissor">scissor</div>
-        </section>
-
-        <div id = "result"></div>
+        <div><a href="homePage.html">Play</a></div>
+        <div><a href="rules.html">Rules</a></div>
+        <div><a href="about.html">About</a></div>
+        <div>Exit</div>
     </main>
-
-    <script>
-
-        document.getElementById('rock').addEventListener('click', checkResult);
-        document.getElementById('paper').addEventListener('click', checkResult);
-        document.getElementById('scissor').addEventListener('click', checkResult);
-
-        function checkResult(){
-            // getting user input by onclick event
-            var userInput = this.innerText;
-            console.log(userInput);
-
-            // an array of values for getting random value from array
-            const computerChoice = ["scissor", "paper", "rock"];
-            // choosing random index number from array
-            const randomChoice = Math.floor(Math.random() * computerChoice.length);
-            // putting index number in array so we will get array value
-            var randomChoiceValue = computerChoice[randomChoice];
-            console.log(randomChoiceValue);
-
-            // logic to compare user input and computer choice to give result
-            if( (userInput == 'rock' && randomChoiceValue == 'paper') || 
-                (userInput == 'paper' && randomChoiceValue == 'scissor') ||
-                (userInput == 'scissor' && randomChoiceValue == 'rock')
-                ){
-                document.getElementById('result').innerHTML = "<h1>Sorry You Lost, Computer win </h1>";
-            }else if(   (userInput == 'paper' && randomChoiceValue == 'rock') ||
-                        (userInput == 'rock' && randomChoiceValue == 'scissor') ||
-                        (userInput == 'scissor' && randomChoiceValue == 'paper')
-                    ){
-                document.getElementById('result').innerHTML = "<h1>Congrats, You Win </h1>";
-            }else{
-                document.getElementById('result').innerHTML = "<h1>Play Again! </h1>";
-            }
-        }
-    </script>
 </body>
 </html>
